@@ -4,13 +4,8 @@ import java.util.random.*;
 
 public class App {
     public static void main(String[] args) throws Exception {
-      Random rand = new Random();
-        int[] x = {3434,3465345,2,5};
-
-        int[] z = Sort.quicksort(x, 0, x.length-1);
-
-        Sort.printarray(z);
-
-        
+        int[] x = {3434, 346534, 3, 5,66,655656,53,1332,123,52345,1111,22};
+        int y = Sort.linearesuche(x, 22);
+        System.out.println(y);
     }
 }
