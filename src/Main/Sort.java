@@ -1,5 +1,5 @@
 package Main;
-import java.util.random.*;
+
 
 
 public class Sort{
@@ -29,7 +29,7 @@ public static int [] selectionsortMin(int arr[]){
       for (int j = i+1; j < x.length; j++) {
         min = x[j]< x[min] ? j : min;
       }
-      if(min !=i){ // Wenn das Minimum an einer anderen Stelle geunden wird Tausche x[index aktuelles minumum] mit x[index des neuen minumux]
+      if(min !=i){ // Wenn das Minimum an einer anderen Stelle geunden wird Tausche x[index aktuelles minumum] mit x[index des neuen minumum]
       swap(x, min, i);
       }
     }
@@ -38,29 +38,33 @@ public static int [] selectionsortMin(int arr[]){
 
   
   public static int[] quicksort(int[] array, int lowIndex, int highIndex) {
-    if (lowIndex >= highIndex) {
+    if (lowIndex >= highIndex) { // Rekursionsanker: Wenn das Teilarray höchstens ein Element enthält (lowIndex ≥ highIndex), ist keine Sortierung nötig
         return null;
     }
 
-    int pivot = array[highIndex];
-    int leftPointer = lowIndex;
-    int rightPointer = highIndex - 1;
+    int pivot = array[highIndex]; //Element am Ende des Teilarrays (kann auch ein beliebiges Element sein).
+    int leftPointer = lowIndex; //Zeiger auf das erste Element des aktuellen Teilarrays
+    int rightPointer = highIndex - 1; //Zeiger auf das vorletzte Element des aktuellen Teilarrays (da highIndex das Pivot enthält).
 
-    while (leftPointer <= rightPointer) {
-        while (leftPointer <= rightPointer && array[leftPointer] < pivot) {
+    while (leftPointer <= rightPointer) { // Schleife, solange sich die beiden Zeiger nicht Überschreiten (leftPointer ≤ rightPointer).:
+        
+      while (leftPointer <= rightPointer && array[leftPointer] < pivot) { //Solange das Element am linken Zeiger kleiner als das Pivot ist, wird der leftPointer inkrementiert:
             leftPointer++;
         }
-        while (leftPointer <= rightPointer && array[rightPointer] > pivot) {
+        while (leftPointer <= rightPointer && array[rightPointer] > pivot) { //Solange das Element am rechten Zeiger größer als das Pivot ist, wird der rightPointer dekrementiert:
             rightPointer--;
         }
+        //Tauscht die Elemente, die auf der falschen Seite des Pivots liegen.
         if (leftPointer <= rightPointer) {
             swap(array, leftPointer, rightPointer);
             leftPointer++;
             rightPointer--;
         }
     }
-
+   // Tauscht das Element an der Stelle leftPointer mit dem Pivot (am Ende des Teilarrays),
+   // sodass das Pivot an seine korrekte sortierte Position gelangt.
     swap(array, leftPointer, highIndex);
+    //Führt die Partitionierung rekursiv für das linke und das rechte Teilarray aus.
     quicksort(array, lowIndex, leftPointer - 1);
     quicksort(array, leftPointer + 1, highIndex);
 
@@ -83,18 +87,30 @@ for (int i = 0; i < arr.length; i++) {
 
 public static int linearesuche(int[] array, int key){
   int keyindex = -1;
-  for (int i = 0; i < array.length; i++) {
-    keyindex = array[i] == key? i: keyindex;
+  for (int i = 0; i < array.length-1; i++) { // Itteriert das array ein mal durch für die gesamte länge des array
+    keyindex = array[i] == key? i: keyindex; // wenn der Wert auf den i zeigt gleich der gesuchten Zahl ist dann ist i der index des keys, sonst behalte den Wert -1 bei
  }
  if(keyindex == -1){
   System.out.println("Key ist nicht in dem Array enthalten");
-  return -1;
+  return keyindex;
  }
  return keyindex;
 }
-public static int binearesuche(int[] array, int key){
 
-  
+//BinaereSuche nur möglich bei bereits sortierten Listen
+public static int binaereSuche(int[] array, int key) {
+  int low = 0; // Pointer der auf Element aufg der Linken Seite im Array zeigt 
+  int high = array.length - 1; // Pointer der Immer auf die Element auf rechten Seite des Arrays zeigt
+
+  while (low <= high) {
+    int mid = (low + high) / 2; //Index des Elemnets in der Mitte des Array
+      int midValue = array[mid];
+      if (key == midValue) {
+          return mid; 
+      }
+      high = (key < midValue) ? mid - 1 : high; // wenn der Key kleiner dem Elemment in der mitte ist verschiebe den Pointer high eins nach Links von dem Elemment in der Mitte
+      low  = (key > midValue) ? mid + 1 : low;  // wenn der Key größer dem Elemment in der mitte ist verschiebe den Pointer low eins nach Rechts von dem Elemment in der Mitte
+  }
+  return -1; 
 }
-
 }
