@@ -1,19 +1,19 @@
 package Main;
 public class Root {
 private int Value;
-private Node leftnode;
-private Node rightnode;
+private Root leftnode;
+private Root rightnode;
     
-public Root(int Value,Node leftnode,Node rightnode){
+public Root(int Value, Root leftnode,Root rightnode){
 this.Value =Value;
 this.leftnode = leftnode;
 this.rightnode = rightnode;
 }
 
-public Node getLeftnode() {
+public Root getLeftnode() {
     return leftnode;
 }
-public Node getRightnode() {
+public Root getRightnode() {
     return rightnode;
 }
 public int getValue() {
