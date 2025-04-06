@@ -13,11 +13,17 @@ public void add(Node nodebeforNode, int nodetoadd){
   nodebeforNode.setNextNode(newnode);
 }
 
+public void newHead(int nodetoadd){
+   Node newHead = new Node(nodetoadd,this.Head);
+   this.Head = newHead;
+  }
+
+
 public void pop(Node nodetodelete){
  if(nodetodelete == null || nodetodelete.getNextNode() == null){
     throw new IllegalStateException("Kann Null nicht Löschen");
  }
- 
+
  Node next = nodetodelete.getNextNode();
  nodetodelete.setValue(next.getValue());
  nodetodelete.setNextNode(next.getNextNode());
