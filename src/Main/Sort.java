@@ -19,7 +19,6 @@ public static int  [] selectionsortMax(int arr[]){
   }
   return x;
 }
-
 public static int [] selectionsortMin(int arr[]){
     int x[] = arr.clone(); //kopie des Arrays
     int min = 0;// stratet das erste elmment als kleinstes
