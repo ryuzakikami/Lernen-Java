@@ -48,14 +48,25 @@ public void deleteNode(Node nodetodelete){
  nodetodelete.setValue(next.getValue());
  nodetodelete.setNextNode(next.getNextNode());
 }
-
+public void updateNode(int index, int Value){
+    Node currentNode = this.Head;
+    int pointer = -1;  
+    while (currentNode != null) {
+        pointer++;
+        if(pointer == index){
+            currentNode.setValue(Value);
+            return;
+        }
+       currentNode = currentNode.getNextNode();
+     }
+     System.out.println("Der index ist außerhalb der liste");
+    }
 public void printlist() {
     Node currentNode = this.Head;
     while (currentNode != null) {
         System.out.print(currentNode.getValue() + ", ");
         currentNode = currentNode.getNextNode();
     }
-    System.out.println("null");
 }
 public void searchNode(int Value){
     Node currentNode = this.Head;
@@ -72,6 +83,15 @@ public void searchNode(int Value){
    }
    System.out.println(index);
    }
+   public int getListlenght(){
+    Node currentNode = this.Head;
+    int pointer = 0;
+    while (currentNode != null) {
+        pointer++;
+        currentNode = currentNode.getNextNode();
+    }
+    return pointer;
+}      
 public Node getHead() {
     return Head;
 }

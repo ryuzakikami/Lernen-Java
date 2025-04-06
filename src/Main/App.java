@@ -12,8 +12,13 @@ public class App {
         Node n3 = list.addNewNode(n2, 13);
         Node n4 = list.addNewNode(n3, 2);
         Node n5 = list.addNewNode(n4, 44);
-        int x =  n3.getValue();
-        list.searchNode(44);
-        list.printlist(); 
+        list.printlist();
+        list.updateNode(4, 5);
+        System.out.println("");
+        list.printlist();
+        
+        
+      
+        
     }
 }

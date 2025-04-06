@@ -33,6 +33,19 @@ public Node addNewNode(Node privousNode,Node afterNode, int NodeToAdd){
     nodetodelete.setNextNode(next.getNextNode());
     nodetodelete.setPriviousNode(privNode.getPriviousNode());
    }
+   public void updateNode(int index, int Value){
+    Node currentNode = this.headNode;
+    int pointer = -1;  
+    while (currentNode != null) {
+        pointer++;
+        if(pointer == index){
+            currentNode.setValue(Value);
+            return;
+        }
+       currentNode = currentNode.getNextNode();
+     }
+     System.out.println("Der index ist außerhalb der liste");
+    }
   public void newHead(int nodetoadd){
     Node newHead = new Node(nodetoadd,this.headNode,null);
     this.headNode = newHead;
@@ -66,7 +79,14 @@ public void searchNode(int Value){
    }
    System.out.println(index);
    }
-
+public int getListlenght(){
+    Node currentNode = this.headNode;
+    int pointer = 0;
+    while (currentNode != null) {
+        pointer++;
+    }
+    return pointer;
+}   
    
 public Node getHeadNode() {
     return headNode;

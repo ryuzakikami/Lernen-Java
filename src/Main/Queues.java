@@ -1,5 +1,5 @@
 package Main;
 
-public class Heap {
+public class Queues {
     
 }
