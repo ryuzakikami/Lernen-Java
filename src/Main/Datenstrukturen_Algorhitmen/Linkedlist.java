@@ -1,5 +1,4 @@
-package Main;
-
+package Main.Datenstrukturen_Algorhitmen;
 
 public class Linkedlist {
 private Node Head;

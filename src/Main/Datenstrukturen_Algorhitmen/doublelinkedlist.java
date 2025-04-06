@@ -1,4 +1,4 @@
-package Main;
+package Main.Datenstrukturen_Algorhitmen;
 
 public class doublelinkedlist {
 private Node headNode;

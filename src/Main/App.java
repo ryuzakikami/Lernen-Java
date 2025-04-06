@@ -1,5 +1,8 @@
 package Main;
 
+import Main.Datenstrukturen_Algorhitmen.Linkedlist;
+import Main.Datenstrukturen_Algorhitmen.Node;
+
 public class App {
     public static void main(String[] args) {
         Node tail = new Node(33, null);
