@@ -57,8 +57,21 @@ public void printlist() {
     }
     System.out.println("null");
 }
-
-
+public void searchNode(int Value){
+    Node currentNode = this.Head;
+    int pointer = -1;
+    int index = -1;
+    while (currentNode != null) {
+      pointer++;
+       if(currentNode.getValue() == Value){
+           index = pointer;
+           System.out.println(index);
+           return;
+       }
+       currentNode = currentNode.getNextNode();
+   }
+   System.out.println(index);
+   }
 public Node getHead() {
     return Head;
 }
@@ -68,22 +81,6 @@ public Node getTail() {
 }
 public void setTail(Node tail) {
     this.tail = tail;
-}
-
-public void searchNode(int Value){
- Node currentNode = this.Head;
- int pointer = -1;
- int index = -1;
- while (currentNode != null) {
-   pointer++;
-    if(currentNode.getValue() == Value){
-        index = pointer;
-        System.out.println(index);
-        return;
-    }
-    currentNode = currentNode.getNextNode();
-}
-System.out.println(index);
 }
 
 }
