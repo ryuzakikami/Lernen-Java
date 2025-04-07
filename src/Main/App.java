@@ -1,7 +1,5 @@
 package Main;
-
-import Main.Datenstrukturen_Algorhitmen.Linkedlist;
-import Main.Datenstrukturen_Algorhitmen.Node;
+import Main.Datenstrukturen_Algorhitmen.*;
 
 public class App {
     public static void main(String[] args) {
