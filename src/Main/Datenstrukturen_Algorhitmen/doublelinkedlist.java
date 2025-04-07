@@ -8,6 +8,8 @@ private Node tailNode;
 public doublelinkedlist(Node headNode,Node tailNode ){
 this.tailNode = tailNode;
 this.headNode = headNode;
+this.headNode.setNextNode(tailNode);
+this.tailNode.setPriviousNode(headNode);
 }
 public Node addNewNode(Node privousNode,Node afterNode, int NodeToAdd){
     Node newnode = new Node(NodeToAdd, privousNode.getNextNode(),privousNode);
