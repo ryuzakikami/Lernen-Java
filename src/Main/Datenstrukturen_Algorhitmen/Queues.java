@@ -27,4 +27,12 @@ public int front(){
 return this.front.getValue();
 }
 
+public void printQueue(){
+  Node currNode = this.front;
+  while (currNode !=null) {
+    System.out.println(currNode.getValue());
+    currNode = currNode.getNextNode();
+  }
+  return;
+}
 }

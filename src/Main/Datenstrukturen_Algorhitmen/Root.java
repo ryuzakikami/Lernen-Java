@@ -1,20 +1,25 @@
 package Main.Datenstrukturen_Algorhitmen;
 public class Root {
 private int Value;
-private Root leftnode;
-private Root rightnode;
+private Root leftRoot;
+private Root rightRoot;
     
-public Root(int Value, Root leftnode,Root rightnode){
+public Root(int Value, Root leftnRoot,Root rightRoot){
 this.Value =Value;
-this.leftnode = leftnode;
-this.rightnode = rightnode;
+this.leftRoot = leftRoot;
+this.rightRoot = rightRoot;
 }
-
-public Root getLeftnode() {
-    return leftnode;
+public Root getLeftRoot() {
+    return leftRoot;
 }
-public Root getRightnode() {
-    return rightnode;
+public Root getRightRoot() {
+    return rightRoot;
+}
+public void setLeftRoot(Root leftRoot) {
+    this.leftRoot = leftRoot;
+}
+public void setRightRoot(Root rightRoot) {
+    this.rightRoot = rightRoot;
 }
 public int getValue() {
     return Value;
