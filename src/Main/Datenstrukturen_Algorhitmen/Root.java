@@ -4,7 +4,7 @@ private int Value;
 private Root leftRoot;
 private Root rightRoot;
     
-public Root(int Value, Root leftnRoot,Root rightRoot){
+public Root(int Value, Root leftRoot,Root rightRoot){
 this.Value =Value;
 this.leftRoot = leftRoot;
 this.rightRoot = rightRoot;
