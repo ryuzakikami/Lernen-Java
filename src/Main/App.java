@@ -4,10 +4,11 @@ import Main.Rekursion.*;
 
 public class App {
     public static void main(String[] args) {
-    String x = RekursiverAlgorithmus.Reverse("Test");
 
-    System.out.println(x);
-      
+    int test = RekursiverAlgorithmus.anzahlbuchstabe("aab", 'a');
+    System.out.println(test);
+
+
         
     }
 }
