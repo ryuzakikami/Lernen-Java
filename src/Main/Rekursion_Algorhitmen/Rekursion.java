@@ -1,6 +1,6 @@
 package Main.Rekursion_Algorhitmen;
 
-public class RekursiverAlgorithmus {
+public class Rekursion {
 
     public static int fib(int n) {
       if(n == 0 || n == 1){
@@ -11,7 +11,6 @@ public class RekursiverAlgorithmus {
       }
     }  
     
-
     public static int fakultaet(int n){
      if(n == 0 || n == 1){
      return 1;
