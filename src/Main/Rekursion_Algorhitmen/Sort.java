@@ -22,7 +22,7 @@ public static int  [] selectionsortMax(int arr[]){
 public static int [] selectionsortMin(int arr[]){
     int x[] = arr.clone(); //kopie des Arrays
     int min = 0;// stratet das erste elmment als kleinstes
-  
+    
     for (int i = 0; i < x.length; i++) {
         min = i; //Index des Aktuellen Minimums
       for (int j = i+1; j < x.length; j++) {

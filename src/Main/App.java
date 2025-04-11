@@ -39,7 +39,15 @@ public class App {
         }
     }    
    }
+
 }
+public static int [] selectionsort(int array[]){
+
+ return array;
 }
+
+
+}
+
 
 
