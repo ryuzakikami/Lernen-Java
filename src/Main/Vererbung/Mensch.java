@@ -25,7 +25,6 @@ this.kinder = kinder;
 this.istFrau = istFrau;
 }
     
-    
 
 public int getAlter() {
     return alter;
