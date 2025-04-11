@@ -1,4 +1,4 @@
-package Main.Datenstrukturen_Algorhitmen;
+package Main.Datenstrukturen;
 
 public class Bintree {
 private Root Root;

@@ -1,6 +1,5 @@
 package Main;
-import Main.Datenstrukturen_Algorhitmen.*;
-import Main.Rekursion.*;
+import Main.Rekursion_Algorhitmen.*;
 
 public class App {
     public static void main(String[] args) {

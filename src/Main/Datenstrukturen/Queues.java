@@ -1,4 +1,4 @@
-package Main.Datenstrukturen_Algorhitmen;
+package Main.Datenstrukturen;
 
 public class Queues {
 private Node front;

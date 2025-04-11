@@ -1,4 +1,4 @@
-package Main.Rekursion;
+package Main.Rekursion_Algorhitmen;
 
 public class RekursiverAlgorithmus {
 

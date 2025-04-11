@@ -1,4 +1,4 @@
-package Main.Datenstrukturen_Algorhitmen;
+package Main.Datenstrukturen;
 public class Root {
 private int Value;
 private Root leftRoot;

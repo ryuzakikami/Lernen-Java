@@ -1,4 +1,4 @@
-package Main.Datenstrukturen_Algorhitmen;
+package Main.Datenstrukturen;
 public class Node {
 private int Value;
 private Node nextNode = null;
