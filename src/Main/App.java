@@ -1,10 +1,21 @@
 package Main;
+import Main.Datenstrukturen.Bintree;
 import Main.Vererbung.*;
 
 public class App {
     public static void main(String[] args) {
-     Mensch tamara = erzeugeMensch("tamara", 14, 1.40, false, true, 0);
-     System.out.println( tamara.getClass()); 
+     Bintree tree = new Bintree(10);
+     tree.plantLeave(9);
+     tree.plantLeave(5);
+     tree.plantLeave(22);
+     tree.plantLeave(24);
+     tree.plantLeave(19);
+     tree.plantLeave(15);
+     tree.plantLeave(20);
+     System.out.println(tree.getRoot().getLeftRoot().getValue());
+     tree.updateTree(tree.getRoot().getLeftRoot(), 1);
+     System.out.println(tree.getRoot().getLeftRoot().getValue());
+
    }
 
    public static Mensch erzeugeMensch(String name,int alter,double koerpergroeße,boolean kinder,boolean istFrau,int anzahlkinder){

@@ -112,4 +112,7 @@ public static int binaereSuche(int[] array, int key) {
   }
   return -1; 
 }
+
+
+
 }
