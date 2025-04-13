@@ -1,21 +1,14 @@
 package Main;
+import java.util.LinkedList;
 import Main.Datenstrukturen.Bintree;
+import Main.Rekursion_Algorhitmen.Sort;
 import Main.Vererbung.*;
 
 public class App {
     public static void main(String[] args) {
-     Bintree tree = new Bintree(10);
-     tree.plantLeave(9);
-     tree.plantLeave(5);
-     tree.plantLeave(22);
-     tree.plantLeave(24);
-     tree.plantLeave(19);
-     tree.plantLeave(15);
-     tree.plantLeave(20);
-     System.out.println(tree.getRoot().getLeftRoot().getValue());
-     tree.updateTree(tree.getRoot().getLeftRoot(), 1);
-     System.out.println(tree.getRoot().getLeftRoot().getValue());
-
+        int[] t = {9,2,3434,123,123,1,3333,11};
+        quicksort(t, 0, t.length-1);
+        Sort.printarray(t);
    }
 
    public static Mensch erzeugeMensch(String name,int alter,double koerpergroeße,boolean kinder,boolean istFrau,int anzahlkinder){
@@ -52,13 +45,43 @@ public class App {
    }
 
 }
-public static int [] selectionsort(int array[]){
 
- return array;
+public static int[] quicksort(int[] array, int lowIndex, int highIndex) {
+if(lowIndex >= highIndex){
+    return array;
 }
 
+int pivot = array[highIndex];
+int leftPointer = lowIndex;
+int rightPointer = highIndex -1;
 
+
+while (leftPointer <= rightPointer) {
+    while (leftPointer <= rightPointer && array[leftPointer] < pivot) {
+        leftPointer++;
+    }
+    while (leftPointer <= rightPointer && array[rightPointer] > pivot) {
+        rightPointer--;
+    }
+    if (leftPointer <= rightPointer) {
+        int temp = array[leftPointer];
+        array[leftPointer] = array[rightPointer];
+        array[rightPointer] = temp;
+        rightPointer--; 
+        leftPointer++;
+    }
 }
+
+int temp = array[leftPointer];
+array[leftPointer] = array[highIndex];
+array[highIndex] = temp;
+
+quicksort(array, lowIndex, leftPointer-1);
+quicksort(array, leftPointer+1, highIndex);
+return array;
+}
+}
+
 
 
 

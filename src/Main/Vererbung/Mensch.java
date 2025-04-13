@@ -1,5 +1,4 @@
 package Main.Vererbung;
-
 public class Mensch {
 private String name;
 private int alter;
