@@ -27,6 +27,11 @@ public int front(){
 return this.front.getValue();
 }
 
+public void empty(){
+  this.front = null;
+  this.Back = null; 
+}
+
 public void printQueue(){
   Node currNode = this.front;
   while (currNode !=null) {

@@ -42,39 +42,7 @@ public class Bintree {
      * Falls der zu löschende Knoten Kinder besitzt, werden diese neu "gepflanzt" (wieder eingefügt).
      */
     public void removeLeave(int value) {
-        // Suche den Knoten und seinen Elternknoten
-        Root[] roots = searchRoot(value);
-        Root parent = roots[0];
-        Root nodeToRemove = roots[1];
-
-        // Knoten wurde nicht gefunden
-        if (nodeToRemove == null) {
-            System.out.println("Knoten mit dem Wert " + value + " wurde nicht gefunden.");
-            return;
-        }
-
-        // Falls der Knoten Kinder besitzt, "pflanze" diese wieder in den Baum ein.
-        // (Hinweis: Diese Vorgehensweise verliert die ursprüngliche Struktur des Teilbaumes,
-        //  rein wertbasiert werden die Kinder wieder eingefügt.)
-        if (nodeToRemove.getLeftRoot() != null) {
-            // Es wird der gesamte Teilbaum ab dem linken Kind neu eingefügt.
-            plantLeave(nodeToRemove.getLeftRoot().getValue());
-        }
-        if (nodeToRemove.getRightRoot() != null) {
-            plantLeave(nodeToRemove.getRightRoot().getValue());
-        }
-
-        // Entferne den Knoten, indem die Referenz vom Elternknoten entfernt wird.
-        if (parent != null) {  // Falls nodeToRemove nicht die Wurzel ist
-            if (parent.getLeftRoot() == nodeToRemove) {
-                parent.setLeftRoot(null);
-            } else if (parent.getRightRoot() == nodeToRemove) {
-                parent.setRightRoot(null);
-            }
-        } else {
-            // Falls der zu löschende Knoten die Wurzel ist, leere den Baum.
-            this.root = null;
-        }
+        
     }
 
     /**

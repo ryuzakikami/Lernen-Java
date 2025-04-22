@@ -20,12 +20,12 @@ Node temp = this.topNode.getPriviousNode();
 temp.setNextNode(null);
 this.topNode= temp;   
 }
-public int peak(){
+public int top(){
  return this.topNode.getValue();   
 }
 
-public void update(int Value){
-    this.topNode.setValue(Value);
+public void empty(){
+    this.topNode = null;
 }
 
 public void PrintStack(){
