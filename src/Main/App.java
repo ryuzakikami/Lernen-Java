@@ -55,60 +55,33 @@ public class App {
 }
 public static int [] selectionsort(int array[]){
 
- return array;
-}
-
-public static void swap(int [] array, int i, int j){
-    int temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
-}
-
-public static int Binäresuche(int[]array, int key){
- int lowindex = 0;
- int highindex = array.length-1;
- while (lowindex<=highindex) {
-    int mid = (lowindex +highindex)/2;
-    int midvalue = array[mid];
-    if (key == midvalue) {
-        return mid;
+    return array;
+   }
+   
+   public static void swap(int [] array, int i, int j){
+       int temp = array[i];
+       array[i] = array[j];
+       array[j] = temp;
+   }
+   
+   public static int Binäresuche(int[]array, int key){
+    int lowindex = 0;
+    int highindex = array.length-1;
+    while (lowindex<=highindex) {
+       int mid = (lowindex +highindex)/2;
+       int midvalue = array[mid];
+       if (key == midvalue) {
+           return mid;
+       }
+       highindex = (midvalue > key)?mid-1 : highindex;
+       lowindex = (midvalue < key)?mid+1 : lowindex;
     }
-    highindex = (midvalue > key)?mid-1 : highindex;
-    lowindex = (midvalue < key)?mid+1 : lowindex;
- }
- return -1;   
+    return -1;   
+   }
 }
 
-int pivot = array[highIndex];
-int leftPointer = lowIndex;
-int rightPointer = highIndex -1;
 
 
-while (leftPointer <= rightPointer) {
-    while (leftPointer <= rightPointer && array[leftPointer] < pivot) {
-        leftPointer++;
-    }
-    while (leftPointer <= rightPointer && array[rightPointer] > pivot) {
-        rightPointer--;
-    }
-    if (leftPointer <= rightPointer) {
-        int temp = array[leftPointer];
-        array[leftPointer] = array[rightPointer];
-        array[rightPointer] = temp;
-        rightPointer--; 
-        leftPointer++;
-    }
-}
-
-int temp = array[leftPointer];
-array[leftPointer] = array[highIndex];
-array[highIndex] = temp;
-
-quicksort(array, lowIndex, leftPointer-1);
-quicksort(array, leftPointer+1, highIndex);
-return array;
-}
-}
 
 
 
