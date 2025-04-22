@@ -1,15 +1,23 @@
 package Main;
-
-import java.util.LinkedList; 
-import java.util.List;
 import Main.Datenstrukturen.Bintree;
 import Main.Rekursion_Algorhitmen.Sort;
 import Main.Vererbung.*;
 
 public class App {
     public static void main(String[] args) {
-    
-    }
+     Bintree tree = new Bintree(10);
+     tree.plantLeave(9);
+     tree.plantLeave(5);
+     tree.plantLeave(22);
+     tree.plantLeave(24);
+     tree.plantLeave(19);
+     tree.plantLeave(15);
+     tree.plantLeave(20);
+     System.out.println(tree.getRoot().getLeftRoot().getValue());
+     tree.updateTree(tree.getRoot().getLeftRoot(), 1);
+     System.out.println(tree.getRoot().getLeftRoot().getValue());
+
+   }
 
    public static Mensch erzeugeMensch(String name,int alter,double koerpergroeße,boolean kinder,boolean istFrau,int anzahlkinder){
    if(alter <18){
@@ -45,31 +53,9 @@ public class App {
    }
 
 }
-public static int [] quicksort(int array[], int lowindex, int highindex){
- if(lowindex >= highindex){
-        return array;
-    }
-int pivot = array[highindex];
-int leftpointer = lowindex;
-int rigthpointer = highindex-1;
+public static int [] selectionsort(int array[]){
 
-while (leftpointer<=rigthpointer) {
-    while (leftpointer<=rigthpointer && array[rigthpointer]>pivot) {
-        rigthpointer--;
-    }
-    while (leftpointer<=rigthpointer&& array[leftpointer]< pivot) {
-        leftpointer++;
-    }
-    if (leftpointer<=rigthpointer) {
-        swap(array, leftpointer, rigthpointer);
-        rigthpointer--;
-        leftpointer++;
-    }
-}
-swap(array, leftpointer, highindex);
-quicksort(array, lowindex, leftpointer-1);
-quicksort(array, leftpointer+1, highindex);
-return array;
+ return array;
 }
 
 public static void swap(int [] array, int i, int j){
@@ -93,8 +79,37 @@ public static int Binäresuche(int[]array, int key){
  return -1;   
 }
 
+int pivot = array[highIndex];
+int leftPointer = lowIndex;
+int rightPointer = highIndex -1;
 
+
+while (leftPointer <= rightPointer) {
+    while (leftPointer <= rightPointer && array[leftPointer] < pivot) {
+        leftPointer++;
+    }
+    while (leftPointer <= rightPointer && array[rightPointer] > pivot) {
+        rightPointer--;
+    }
+    if (leftPointer <= rightPointer) {
+        int temp = array[leftPointer];
+        array[leftPointer] = array[rightPointer];
+        array[rightPointer] = temp;
+        rightPointer--; 
+        leftPointer++;
+    }
 }
+
+int temp = array[leftPointer];
+array[leftPointer] = array[highIndex];
+array[highIndex] = temp;
+
+quicksort(array, lowIndex, leftPointer-1);
+quicksort(array, leftPointer+1, highIndex);
+return array;
+}
+}
+
 
 
 

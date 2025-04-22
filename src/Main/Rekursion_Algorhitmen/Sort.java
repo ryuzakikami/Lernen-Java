@@ -38,7 +38,7 @@ public static int [] selectionsortMin(int arr[]){
   
   public static int[] quicksort(int[] array, int lowIndex, int highIndex) {
     if (lowIndex >= highIndex) { // Rekursionsanker: Wenn das Teilarray höchstens ein Element enthält (lowIndex ≥ highIndex), ist keine Sortierung nötig
-        return null;
+        return array;
     }
 
     int pivot = array[highIndex]; //Element am Ende des Teilarrays (kann auch ein beliebiges Element sein).
