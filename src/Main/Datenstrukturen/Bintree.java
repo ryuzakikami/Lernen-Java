@@ -13,7 +13,7 @@ public class Bintree {
     /**
      * Fügt einen neuen Knoten mit dem übergebenen Wert in den Baum ein.
      */
-    public void plantLeave(int value) {
+    public void insert(int value) {
         Root newLeaf = new Root(value, null, null);
         this.root = addLeave(this.root, newLeaf);
     }
@@ -82,41 +82,31 @@ public class Bintree {
      * Aktualisiert einen Knoten im Baum.
      * Hier wird als Standardvorgehen der Knoten gelöscht und anschließend mit dem neuen Wert neu eingefügt.
      */
-    public void updateTree(Root node, int newValue) {
-        // Suche den Knoten, der upgedated werden soll (mithilfe des Wertes des übergebenen Knotens).
-        Root[] r = searchRoot(node.getValue());
-        Root rootToUpdate = r[1];
-
-        if (rootToUpdate != null) {
-            // Entferne den alten Knoten.
-            // Füge den neuen Wert in den Baum ein.
-            plantLeave(newValue);
-        } else {
-            System.out.println("Knoten mit dem Wert " + node.getValue() + " wurde nicht gefunden.");
-        }
+    Boolean test = false;
+     public void updateTree(int update ,int newValue) {
+       searchRoot(update,this.root);
+        if(test == false){
+        return;
+       }
+       if(update == newValue){
+            return;
+        }  
+        else{delete(update);
+            insert(newValue);}
+        
     }
-   
-    /**
-     * Durchsucht den Baum nach dem Knoten mit dem angegebenen Wert und liefert ein Array zurück:
-     * [Elternknoten, aktueller Knoten]. Ist kein Knoten vorhanden, ist letzteres null.
-     */
-    public Root[] searchRoot(int value) {
-        Root currentRoot = this.root;
-        Root parent = null;
-        while (currentRoot != null) {
-            if (value < currentRoot.getValue()) {
-                parent = currentRoot;
-                currentRoot = currentRoot.getLeftRoot();
-            } else if (value > currentRoot.getValue()) {
-                parent = currentRoot;
-                currentRoot = currentRoot.getRightRoot();
-            } else {
-                break;
-            }
+    
+    public void searchRoot(int value, Root r){
+        if(r == null){
+            return;
         }
-        return new Root[]{parent, currentRoot};
-    }
-
+        if(r.getValue() == value){
+          test = true;
+        }
+        searchRoot(value, r.getRightRoot());
+        searchRoot(value, r.getLeftRoot());
+        
+    } 
     public LinkedList<Integer> inorder(Root root, LinkedList<Integer> r1 ){
         if(root == null){
         return r1;
@@ -135,4 +125,5 @@ public class Bintree {
     public void setRoot(Root root) {
         this.root = root;
     }
+
 }

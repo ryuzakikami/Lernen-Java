@@ -8,15 +8,15 @@ import Main.Vererbung.*;
 public class App {
     public static void main(String[] args) {
      Bintree tree = new Bintree(10);
-     tree.plantLeave(9);
-     tree.plantLeave(5);
-     tree.plantLeave(22);
-     tree.plantLeave(22);
-     tree.plantLeave(19);
-     tree.plantLeave(15);
-     tree.plantLeave(20);
+     tree.insert(9);
+     tree.insert(5);
+     tree.insert(22);
+     tree.insert(18);
+     tree.insert(19);
+     tree.insert(15);
+     tree.insert(21);
      LinkedList<Integer> l1 = new LinkedList<>();
-     tree.delete(22);
+     tree.updateTree(31, 31);
      System.out.println(tree.inorder(tree.getRoot(),l1));
    }
 
