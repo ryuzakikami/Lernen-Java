@@ -65,6 +65,7 @@ public class Bintree {
             }
             // case 3 Unser zu löschendes Element hat 2 Kinder
             root.setValue(minValue(root.getRightRoot()));
+            root.setRightRoot(removeLeave(root.getRightRoot(), value));
         }
       return root;
     }
@@ -82,7 +83,7 @@ public class Bintree {
      * Aktualisiert einen Knoten im Baum.
      * Hier wird als Standardvorgehen der Knoten gelöscht und anschließend mit dem neuen Wert neu eingefügt.
      */
-    Boolean test = false;
+    private Boolean test = false;
      public void updateTree(int update ,int newValue) {
        searchRoot(update,this.root);
         if(test == false){
