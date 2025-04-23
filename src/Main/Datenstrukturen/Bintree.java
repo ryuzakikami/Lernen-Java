@@ -92,7 +92,7 @@ public class Bintree {
             return;
         }  
         else{
-            test = true;
+            test = false;
             delete(update);
             insert(newValue);}
         
