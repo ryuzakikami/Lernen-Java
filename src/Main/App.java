@@ -8,13 +8,13 @@ import Main.Vererbung.*;
 public class App {
     public static void main(String[] args) {
      Bintree tree = new Bintree(10);
-     tree.insert(9);
-     tree.insert(5);
-     tree.insert(22);
-     tree.insert(18);
-     tree.insert(19);
-     tree.insert(15);
-     tree.insert(21);
+     tree.insert1(9);
+     tree.insert1(5);
+     tree.insert1(22);
+     tree.insert1(18);
+     tree.insert1(19);
+     tree.insert1(15);
+     tree.insert1(21);
      LinkedList<Integer> l1 = new LinkedList<>();
      tree.updateTree(21, 31);
      System.out.println(tree.inorder(tree.getRoot(),l1));

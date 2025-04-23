@@ -17,7 +17,6 @@ public class Bintree {
         Root newLeaf = new Root(value, null, null);
         this.root = addLeave(this.root, newLeaf);
     }
-
     /**
      * Rekursive Hilfsmethode, um einen Knoten (addRoot) gemäß BST-Regeln in den Teilbaum einzufügen.
      */
@@ -128,4 +127,23 @@ public class Bintree {
         this.root = root;
     }
 
+    
+    public void insert1(int Value){
+        Root newRoot = new Root(Value, null, null);
+        this.root = insert2(this.root, newRoot);
+    }
+    public Root insert2(Root currentRoot, Root addRoot){
+        if (currentRoot == null) {
+            return addRoot;
+        }
+        if(currentRoot.getValue() > addRoot.getValue())
+        {
+          currentRoot.setLeftRoot(insert2(currentRoot.getLeftRoot(), addRoot));
+        } 
+        else if(currentRoot.getValue() < addRoot.getValue())
+        {
+           currentRoot.setRightRoot(insert2(currentRoot.getRightRoot(), addRoot));
+        }
+        return currentRoot;
+    }
 }
