@@ -64,8 +64,8 @@ public class Bintree {
                return root.getLeftRoot();
             }
             // case 3 Unser zu löschendes Element hat 2 Kinder
-            root.setValue(minValue(root.getRightRoot()));
-            root.setRightRoot(removeLeave(root.getRightRoot(), value));
+            root.setValue(minValue(root.getRightRoot())); // Der kleinste wert des rechten Teilbaums wird an die Stelle des zu Löschenden Knottens überschrieben
+            root.setRightRoot(removeLeave(root.getRightRoot(), value)); // Der Knoten der den Wert des kleinsten wertes des rechten Teilbaums hatte wird gelöscht 
         }
       return root;
     }
@@ -108,7 +108,6 @@ public class Bintree {
         }
         searchRoot(value, r.getRightRoot());
         searchRoot(value, r.getLeftRoot());
-        
     } 
     public LinkedList<Integer> inorder(Root root, LinkedList<Integer> r1 ){
         if(root == null){
