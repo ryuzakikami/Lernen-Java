@@ -1,4 +1,6 @@
 package Main;
+import java.util.LinkedList;
+
 import Main.Datenstrukturen.Bintree;
 import Main.Rekursion_Algorhitmen.Sort;
 import Main.Vererbung.*;
@@ -9,14 +11,13 @@ public class App {
      tree.plantLeave(9);
      tree.plantLeave(5);
      tree.plantLeave(22);
-     tree.plantLeave(24);
+     tree.plantLeave(22);
      tree.plantLeave(19);
      tree.plantLeave(15);
      tree.plantLeave(20);
-     System.out.println(tree.getRoot().getLeftRoot().getValue());
-     tree.updateTree(tree.getRoot().getLeftRoot(), 1);
-     System.out.println(tree.getRoot().getLeftRoot().getValue());
-
+     LinkedList<Integer> l1 = new LinkedList<>();
+     tree.delete(22);
+     System.out.println(tree.inorder(tree.getRoot(),l1));
    }
 
    public static Mensch erzeugeMensch(String name,int alter,double koerpergroeße,boolean kinder,boolean istFrau,int anzahlkinder){
@@ -53,31 +54,6 @@ public class App {
    }
 
 }
-public static int [] selectionsort(int array[]){
-
-    return array;
-   }
-   
-   public static void swap(int [] array, int i, int j){
-       int temp = array[i];
-       array[i] = array[j];
-       array[j] = temp;
-   }
-   
-   public static int Binäresuche(int[]array, int key){
-    int lowindex = 0;
-    int highindex = array.length-1;
-    while (lowindex<=highindex) {
-       int mid = (lowindex +highindex)/2;
-       int midvalue = array[mid];
-       if (key == midvalue) {
-           return mid;
-       }
-       highindex = (midvalue > key)?mid-1 : highindex;
-       lowindex = (midvalue < key)?mid+1 : lowindex;
-    }
-    return -1;   
-   }
 }
 
 

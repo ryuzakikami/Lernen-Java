@@ -1,5 +1,5 @@
 package Main.Datenstrukturen;
-
+import java.util.LinkedList;
 public class Bintree {
 
     // Feld: Der Wurzelknoten des Baumes
@@ -36,13 +36,46 @@ public class Bintree {
         // Falls der Wert bereits existiert, wird nichts geändert.
         return currentRoot;
     }
+    
+    public void delete(int key) {
+        root = removeLeave(this.root, key);
+    }
 
-    /**
-     * Löscht den Knoten mit dem angegebenen Wert aus dem Baum.
-     * Falls der zu löschende Knoten Kinder besitzt, werden diese neu "gepflanzt" (wieder eingefügt).
-     */
-    public void removeLeave(int value) {
-        
+    public Root removeLeave(Root root, int value) {
+        //Rekursions Anker
+        if(root == null){
+            return null;
+        }
+        //case 1: Unser zu löschendes Element hat keine Kinder
+        if( root.getValue() > value){
+            root.setLeftRoot(removeLeave(root.getLeftRoot(),value));
+        }
+        else if(root.getValue() < value){
+           root.setRightRoot(removeLeave(root.getRightRoot(), value));
+        }
+        //case 2/3: Unser zu löschendes Element hat einen oder mehr Kinder
+        else{
+            //case 2 Unser zu löschendes Element hat ein Kinde
+             //
+            if(root.getLeftRoot() == null){
+                return root.getRightRoot();
+            }
+            else if(root.getRightRoot() == null){
+               return root.getLeftRoot();
+            }
+            // case 3 Unser zu löschendes Element hat 2 Kinder
+            root.setValue(minValue(root.getRightRoot()));
+        }
+      return root;
+    }
+    // Sucht von der Wurzel die Übergeben wird auch das kleinste elmment im Teil-baum in dem fall also bis zum letzten linken Knotten im baum durch.    
+    public static int minValue(Root root){
+        int minv = root.getValue();
+        while (root.getLeftRoot() != null) {
+            root = root.getLeftRoot();
+            minv = root.getValue();
+        }
+        return minv;
     }
 
     /**
@@ -56,7 +89,6 @@ public class Bintree {
 
         if (rootToUpdate != null) {
             // Entferne den alten Knoten.
-            removeLeave(node.getValue());
             // Füge den neuen Wert in den Baum ein.
             plantLeave(newValue);
         } else {
@@ -84,7 +116,18 @@ public class Bintree {
         }
         return new Root[]{parent, currentRoot};
     }
- 
+
+    public LinkedList<Integer> inorder(Root root, LinkedList<Integer> r1 ){
+        if(root == null){
+        return r1;
+        }
+
+        inorder(root.getRightRoot(),r1);
+        r1.add(root.getValue());
+        inorder(root.getLeftRoot(),r1);
+        return r1;
+    }
+
     public Root getRoot() {
         return this.root;
     }
