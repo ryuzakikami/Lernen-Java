@@ -16,7 +16,7 @@ public class App {
      tree.insert(15);
      tree.insert(21);
      LinkedList<Integer> l1 = new LinkedList<>();
-     tree.updateTree(31, 31);
+     tree.updateTree(21, 31);
      System.out.println(tree.inorder(tree.getRoot(),l1));
    }
 

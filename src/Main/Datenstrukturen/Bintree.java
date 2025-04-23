@@ -86,12 +86,14 @@ public class Bintree {
      public void updateTree(int update ,int newValue) {
        searchRoot(update,this.root);
         if(test == false){
-        return;
+            return;
        }
        if(update == newValue){
             return;
         }  
-        else{delete(update);
+        else{
+            test = true;
+            delete(update);
             insert(newValue);}
         
     }
